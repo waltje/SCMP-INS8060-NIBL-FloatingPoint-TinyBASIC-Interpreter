@@ -81,7 +81,7 @@
 740 REM SUBT. PRINT MONTH
 750 IF K=1 PR"        JANUARY            FEBRUARY             MARCH"
 760 IF K=4 PR"         APRIL               MAY                JUNE"
-770 IF K=7 PR"         JULY              AUGUST            SEPTEMBER"
+770 IF K=7 PR"         JULY               AUGUST            SEPTEMBER"
 780 IF K=10 PR"       OCTOBER            NOVEMBER           DECEMBER"
 790 RETURN
 800 REM TAB ASCII-CODE

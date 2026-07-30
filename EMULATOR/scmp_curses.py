@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # curses example: <https://gist.github.com/claymcleod/b670285f334acd56ad1c>
 # give breakpoints as argument in JSON format on command line
-# last update: Wed 10, January 2024
+# change file to read in line 285
+# last update: Thu 30, July 2026
 
 import curses, binascii, json, os, re, sys
 from scmp import CScmp
@@ -45,7 +46,7 @@ def emulate(stdscr, debug):
     stdscr.scrollok(True)
     # set scrolling region
     stdscr.setscrreg(1, height - 3)
-    stdscr.addstr(0, 1, "SC/MP EMULATOR 2000 - 2024")
+    stdscr.addstr(0, 1, "SC/MP EMULATOR 2000 - 2026")
     stdscr.refresh()
 
     # define 3 color pairs, 1- header/footer , 2 - dynamic text, 3 - background
@@ -152,7 +153,6 @@ def emulate(stdscr, debug):
         if debug:
             # Wait for next input
             k = stdscr.getch()
-    curses.endwin()
     # convert the key to ASCII and print ordinal value
     print("Last pressed %s which is keycode %d." % (chr(k), k))
 
@@ -270,17 +270,19 @@ debug = False
 snapshot = False
 turbo = False
 while not inp_len:
-    prompt = '[d]ebug, [g]o, [q]uit, [l]oad, [r]ead, [s]napshot, [t]urbo: '
+    prompt = '[d]ebug, [g]o, [q]uit, [k]bplus, [l]oad, [r]ead, [s]napshot, [t]urbo: '
     choice = input(prompt).lower()
-    if not re.match(r"^[dglqrst]+$", choice):
+    if not re.match(r"^[dgklqrst]+$", choice):
         continue
     inp_len = len(choice)
     if choice[0] == "q":
         quit()
-    if choice[0] == "l":
-        # load NIBLFP as Intel HEX file into storage
-        # (useful, if monitor program is loaded first)
-        file_hex = "program.hex"
+    if choice[0] == "k" or choice[0] == "l":
+        # load monitor kbplus or arbitrary progran
+        if choice[0] == "k" :
+            file_hex = "kbplus.hex"
+        else:
+            file_hex = "KALENDA.hex"
         file_stats = os.stat(file_hex)
         print(f'Will load file {file_hex} with {file_stats.st_size} Bytes')
         h_lines = []

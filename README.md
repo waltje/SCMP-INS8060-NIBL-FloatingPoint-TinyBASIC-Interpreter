@@ -32,7 +32,8 @@ The first NIBL was published in Dr. Dobb's Journal [7]. An excerpt is found in t
 NIBLE is practically identical to NIBL except that the program runs in page 1 of the SC/MP memory space. Due to this several things had to be changed. I adapted the source for the mentioned macro assembler.
 
 #### NIBLFP
-This program was written by me in the years 1976 - 1986 as floating point extension for the above mentioned NIBL and NIBLE, it covers the address range from hex D000 to FFFF. The resurrected version starte with a program entry point at hex DFC1. Due to existence of the mentioned macro assembler the code was rewritten, so that the program can start now at hex D000, but beside that, was intended from historical reasons to be left largely unchanged.
+This program was written by me in the years 1976 - 1986 as floating point extension for the above mentioned NIBL and NIBLE, it covers the address range from hex D000 to FFFF. The resurrected version starts with a program entry point at hex DFC0. The binary and a newly generated .hex file in Intel Hex format can be found in directory NIBLFP_ORIG.</br>
+Due to existence of the mentioned macro assembler the code was rewritten (as version 7.10), so that the program can start now at hex D000, but beside that, was intended from historical reasons to be left largely unchanged.
 
 The floating-point routines were originally an adapted 1-to-1 translation from source code for the 6502, released in 1976 [8] and written by Roy Rankin and Steve Wozniak. I leave some information extracted from the original article in the belonging subdirectory, especially an assembled listing and the binary code.
 
